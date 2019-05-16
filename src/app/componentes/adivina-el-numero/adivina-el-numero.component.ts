@@ -12,15 +12,17 @@ export class AdivinaElNumeroComponent implements OnInit {
 
   nuevoJuego: JuegoAdivina;
   Mensajes:string;
+
   contador:number;
   ocultarVerificar:boolean;
  
-  constructor() { 
+  constructor()
+  { 
     this.nuevoJuego = new JuegoAdivina();
     console.info("numero Secreto:",this.nuevoJuego.numeroSecreto);  
     this.ocultarVerificar=false;
   }
-  generarnumero() {
+  generarnumero(){
     this.nuevoJuego.generarnumero();
     this.contador=0;
   }
@@ -29,12 +31,11 @@ export class AdivinaElNumeroComponent implements OnInit {
     this.contador++;
     this.ocultarVerificar=true;
     console.info("numero Secreto:",this.nuevoJuego.gano);  
-    if (this.nuevoJuego.verificar()){
-      
+    if (this.nuevoJuego.verificar())
+    {
       this.enviarJuego.emit(this.nuevoJuego);
       this.MostarMensaje("Sos un Genio!!!",true);
       this.nuevoJuego.numeroSecreto=0;
-
     }else{
 
       let mensaje:string;
@@ -85,8 +86,8 @@ export class AdivinaElNumeroComponent implements OnInit {
      }, 3000);
     console.info("objeto",x);
   
-   }  
-  ngOnInit() {
-  }
+   }
+
+  ngOnInit(){}
 
 }

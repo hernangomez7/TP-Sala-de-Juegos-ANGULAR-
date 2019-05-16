@@ -1,0 +1,67 @@
+.jumbotron{
+    border: 2px solid rgb(165, 165, 165);
+    background-color: rgba(22, 22, 22, 0.75);
+    color: rgb(165, 165, 165);
+}
+
+.form-control{
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: rgb(0, 0, 0);
+    color: rgb(192, 192, 192);
+}
+
+.btn_empty{
+    background-image: url(../../../assets/img/boton_empty.png);
+    height: 63px;
+    width: 165px;
+    background-color: transparent;
+    background-size: cover;
+    padding: 0;
+    border: none;
+    color: #ff1100;
+    text-align: center;
+    font-family: 'Impact';
+    font-size: 25px;
+
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+h1,h2,h3{
+    font-family: 'Impact';
+}
+
+li{
+    font-family: 'Cambria';
+}
+
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+   
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    font-family: 'Impact';
+}
+#snackbar.Ganador {
+    background-color: rgb(0, 39, 13);
+}
+#snackbar.Perdedor {
+    background-color: rgb(26, 0, 0);
+}
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}

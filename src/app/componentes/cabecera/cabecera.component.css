@@ -1,18 +1,19 @@
 .panel
 {
     height: 200px;
-    background-image: url("/TP_LAV4_2017/assets/imagenes/cabecera.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    
 }
+
 
 
 .hero-text {
 text-align: center;
 position: absolute;
-top: 50%;
+top: 75%;
 left: 50%;
 transform: translate(-50%, -50%);
 color: #3E06B0;
@@ -32,4 +33,26 @@ cursor: pointer;
 .hero-text a:hover {
 background-color: #555;
 color: white;
+}
+
+.oxide_button1{
+    width : 160px;
+    height : 60px;
+    background-image: url(../../../assets/img/boton_engithub.png);
+    background-size: cover;
+}
+
+.oxide_button2{
+    width : 160px;
+    height : 60px;
+    background-image: url(../../../assets/img/boton_quiensoy.png);
+    background-size: cover;
+}
+
+li{
+    
+    font-family: 'Impact';
+}
+a{
+    color: rgb(185, 110, 110);
 }

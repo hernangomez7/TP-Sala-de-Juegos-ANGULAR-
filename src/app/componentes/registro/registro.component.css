@@ -27,10 +27,6 @@ button {
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn,.signupbtn {float:left;width:50%}
 
-/* Add padding to container elements */
-.container {
-    padding: 16px;
-}
 
 /* The Modal (background) */
 .modal {
@@ -60,7 +56,7 @@ button {
     position: absolute;
     right: 35px;
     top: 15px;
-    color: #000;
+    color: rgb(255, 0, 0);
     font-size: 40px;
     font-weight: bold;
 }
@@ -83,4 +79,65 @@ button {
     .cancelbtn, .signupbtn {
        width: 100%;
     }
+}
+
+.jumbotron{
+    font-family: 'Cambria';
+    color: rgb(255, 0, 0);
+    background-color: transparent;
+}
+h2{
+    font-family: 'Impact';
+    color: rgb(255, 0, 0);
+}
+
+strong{
+    font-family: 'Cambria';
+    color: rgb(255, 0, 0);
+}
+
+body{
+    background-image: src("assets/img/nurse_mod2.png");
+    background-size: cover;
+    height: 100vh;
+    background-color: transparent;
+}
+
+.script{
+    background-color: transparent;
+}
+
+.btn_aceptar{
+    background-image: src("assets/img/boton_aceptar.png");
+    height: 63px;
+    width: 165px;
+    background-color: transparent;
+    background-size: cover;
+    padding: 0;
+    border: none;
+}
+
+.btn_cancelar{
+    background-image: src("assets/img/boton_declinar.png");
+    height: 63px;
+    width: 165px;
+    background-color: transparent;
+    background-size: cover;
+    padding: 0;
+    border: none;
+}
+
+.container{
+    background-color: rgb(22, 22, 22);
+    color: rgb(165, 165, 165);
+}
+
+.modal-content{
+    background-color: rgb(22, 22, 22);
+}
+
+
+input{
+    background-color: rgb(15, 15, 15);
+    color: #f44336;
 }

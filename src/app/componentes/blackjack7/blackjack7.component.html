@@ -1,0 +1,105 @@
+<div class="container" >
+    <div class="jumbotron" style="padding:35px;">
+  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div style="text-align:center">
+          <h1>{{nuevoJuego.nombre}}</h1>
+        </div>
+        <form name="juego" class="mesa">
+            <form class="mesa2">
+                <h3>Cartas del croupier</h3>
+                <p >sus cartas suman = {{cantidadCroupier}}</p>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td><img src="{{manoCroupier[0].foto}}"></td>
+                        <td><img src="{{manoCroupier[1].foto}}"></td>
+                        <td><img src="{{manoCroupier[2].foto}}"></td>
+                        <td><img src="{{manoCroupier[3].foto}}"></td>
+                        <td><img src="{{manoCroupier[4].foto}}"></td>
+                    </tr>
+                    
+                </tbody>
+            </form>
+            <img src="assets/img/baraja.png" style="height:70px">
+            <form class="jugador_box">
+                    <h3>Tus cartas</h3>
+                <tr>
+                    <td>
+                            <img src="{{manoJugador[0].foto}}">
+                            <img src="{{manoJugador[1].foto}}">
+                            <img src="{{manoJugador[2].foto}}">
+                            <img src="{{manoJugador[3].foto}}">
+                            <img src="{{manoJugador[4].foto}}">
+                    </td>
+                    <td><img style="height:55px" src="assets/img/trebol2.png"></td>
+                    <td>
+                            <img src="{{manoJugadorDividida[0].foto}}">
+                            <img src="{{manoJugadorDividida[1].foto}}">
+                            <img src="{{manoJugadorDividida[2].foto}}">
+                            <img src="{{manoJugadorDividida[3].foto}}">
+                            <img src="{{manoJugadorDividida[4].foto}}">
+                    </td>
+                </tr>
+            </form>
+
+            <form class="mesa2">
+                <p [hidden]="dosManos == true">suma de cartas = {{cantidadJugador}} , Jugador = {{jugadorDinero}}$, apuesta actual = {{apuestaActual}}$</p>
+                <p [hidden]="dosManos == false">suma de cartas = {{cantidadJugador}} / {{cantidadJugadorDividida}}  , Jugador = {{jugadorDinero}}$, apuesta actual = {{apuestaActual}}$</p>
+                <tr>
+                    <td>
+                        <button (click)="ToggleFormReiniar()"  class="btn_dark2">Reiniciar</button>
+                        <button (click)="RecibirCarta()"  class="btn_dark">Nueva carta</button>
+                        <button (click)="Quedarse()"  class="btn_dark">Quedarse</button>
+                        <button (click)="Doblar()"  class="btn_dark">Doble</button>
+                        <button (click)="DividirBaraja()"  class="btn_dark">Dividir</button>
+                        <button (click)="Asegurarse()"  class="btn_dark">Asegurarse</button>
+                        <button (click)="ToggleFormApostar()"  class="btn_dark2">Apostar</button>
+                        <button (click)="ToggleFormComoJugar()"  class="btn_dark2">¿Como se juega?</button>
+                    </td>
+                </tr>
+            </form>
+        </form>
+    </div>
+    <form class="formApostar" [hidden]="ocultarApostar">
+        <p>Dinero disponible:{{jugadorDinero}}$</p>
+        <p>Cantidad a apostar</p>
+        <input type="number" name="apuestaActual" class="input" [(ngModel)]="apuestaActual" min="10" step="10" autocomplete="off">
+        <br>
+        <br>
+        <button (click)="ApostarIniciar()">Apostar</button>
+        <br>
+        <br>
+        <button (click)="ToggleFormApostar()">Cancelar</button>
+    </form>
+
+    <form class="formApostar" [hidden]="ocultarReiniciar">
+        <p>¿Seguro que quieres Reiniciar la partida? perderas tu progresos</p>
+        <br>
+        <button (click)="Reiniciar()">Apostar</button>
+        <br>
+        <br>
+        <button (click)="ToggleFormReiniar()">Cancelar</button>
+    </form>
+
+    <form class="formApostar" [hidden]="ocultarComoJugar">
+        <h3>Blackjack7</h3>
+        <br>
+        <button (click)="ComoJugar(0)">Introduccion</button>
+        <button (click)="ComoJugar(1)">Comenzar</button>
+        <button (click)="ComoJugar(2)">Blackjack</button>
+        <button (click)="ComoJugar(3)">Doble</button>
+        <button (click)="ComoJugar(4)">Dividir</button>
+        <button (click)="ComoJugar(5)">Asegurarse</button>
+        <br>
+        <br>
+        <button (click)="ToggleFormComoJugar()">OK</button>
+        <br>
+        <br>
+
+        <div>{{informacion}}</div>
+        
+    </form>
+
+    <div id="snackbar">{{mensajes}}</div>
+  </div>

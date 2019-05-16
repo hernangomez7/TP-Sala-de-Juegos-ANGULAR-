@@ -15,37 +15,73 @@ export class AgilidadAritmeticaComponent implements OnInit {
   ocultarVerificar: boolean;
   Tiempo: number;
   repetidor:any;
+  respuesta:any;
+  temporizador:any;
+  mensajes:string;
+  verificarB:boolean;
   private subscription: Subscription;
   ngOnInit() {
   }
-   constructor() {
-     this.ocultarVerificar=true;
-     this.Tiempo=5; 
+  constructor()
+  {
+    this.ocultarVerificar = true;
+    this.verificarB = false;
+    this.Tiempo = 5; 
     this.nuevoJuego = new JuegoAgilidad();
-    console.info("Inicio agilidad");  
   }
-  NuevoJuego() {
-    this.ocultarVerificar=false;
-   this.repetidor = setInterval(()=>{ 
-      
+  NuevoJuego()
+  {
+    this.nuevoJuego.comenzar();
+    this.ocultarVerificar = false;
+    this.repetidor = setInterval(()=>
+    {
       this.Tiempo--;
-      console.log("llego", this.Tiempo);
-      if(this.Tiempo==0 ) {
+      if(this.Tiempo == 0 ||  this.verificarB == true)
+      {
         clearInterval(this.repetidor);
         this.verificar();
-        this.ocultarVerificar=true;
-        this.Tiempo=5;
+        this.ocultarVerificar = true;
+        this.Tiempo = 5;
+        this.verificarB = false;
       }
-      }, 900);
-
+    }, 1000);
   }
+
+  cambiarVerificar()
+  {
+    this.verificarB = true;
+  }
+
   verificar()
   {
-    this.ocultarVerificar=false;
-    clearInterval(this.repetidor);
-   
+    this.nuevoJuego.inicio = false;
+    this.respuesta = this.nuevoJuego.numeroIngresado;
+    if (this.respuesta == this.nuevoJuego.resultado)
+    {
+      this.MostarMensaje("Correcto",true);
+      this.nuevoJuego.gano = true;
+    }else
+    {
+      this.MostarMensaje("Has fallado era:"+this.nuevoJuego.resultado,false);
+      this.nuevoJuego.gano = false;
+    }
+    
+  }
 
-   
-  }  
-
+  MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false)
+  {
+    this.mensajes = mensaje;    
+    var x = document.getElementById("snackbar");
+    if(ganador)
+      {
+        x.className = "show Ganador";
+      }else{
+        x.className = "show Perdedor";
+      }
+    var modelo=this;
+    setTimeout(function()
+    { 
+      x.className = x.className.replace("show", "");
+    }, 3000);
+   }
 }

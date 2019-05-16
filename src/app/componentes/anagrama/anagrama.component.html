@@ -1,3 +1,19 @@
-<p>
-  anagrama works!
-</p>
+<div class="container" >
+  <div class="jumbotron" style="padding:50px;">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <div style="text-align:center">
+        <h1>
+          {{nuevoJuego.nombre}}
+        </h1>
+      </div>
+      <h2></h2>
+      <form name="juego">
+        Respuesta: <input [(ngModel)]="nuevoJuego.respuestaElegida" placeholder="ingrese la palabra" name="respuestaElegida" type="text" class="form-control" style="width:50%" autocomplete="off"/>
+        <h2>anagrama: {{nuevoJuego.palabraDesordenada}}</h2>
+        <button (click)="iniciar()"  class="btn_dark">Cambiar anagrama</button>
+        <button (click)="verificar()"  class="btn_dark">Verificar respuesta</button>
+      </form>
+      <div id="snackbar">{{Mensajes}}</div>
+  </div>
+</div>

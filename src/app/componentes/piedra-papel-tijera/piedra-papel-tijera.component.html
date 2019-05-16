@@ -1,0 +1,32 @@
+<div class="container" >
+    <div class="jumbotron" style="padding:50px;">
+
+        <div style="text-align:center">
+            <h1>
+              {{nuevoJuego.nombre}}!
+            </h1>
+        </div>
+
+        <form name="juego">
+          <div class="info">
+            <button (click)="Nuevo()" class="btn_empty">Nuevo juego</button>
+            <h2 style="color:rgb(175, 251, 255)">rondas:{{nuevoJuego.rondas}}</h2>
+            <h2 style="color:rgb(137, 216, 0)">victorias:{{nuevoJuego.victorias}}</h2>
+            <h2 style="color:rgb(230, 5, 5)">derrotas:{{nuevoJuego.derrotas}}</h2>
+        </div>
+
+          <div [hidden]="ocultarElegir" class="eleccion_img">
+              <h2>elija una opcion</h2>
+            <img (click)="Elegir(1)" src="assets/img/piedra.jpg"> 
+            <img (click)="Elegir(2)" src="assets/img/papel.jpg"> 
+            <img (click)="Elegir(3)" src="assets/img/tijera.jpg"> 
+          </div>
+    
+        </form>
+        
+        <div id="snackbar">{{mensajes}}</div>
+
+
+  </div>
+</div>
+

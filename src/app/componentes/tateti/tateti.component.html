@@ -1,0 +1,38 @@
+<div class="container" >
+    <div class="jumbotron" style="padding:50px;">
+  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div style="text-align:center">
+          <h1>
+            {{nuevoJuego.nombre}}
+          </h1>
+        </div>
+        <form name="juego" class="main">
+            <h2  [hidden]="elegirMarca != true">Elige el marcador</h2>
+          <h2  [hidden]="elegirMarca == true">turno de {{turnoActual}}</h2>
+          <h2 [hidden]="elegirMarca != true">
+            <img (click)="CambiarMarcador('circulo')" src = "assets/img/tateti_ficha_circulo.png">
+            <img (click)="CambiarMarcador('cruz')" src = "assets/img/tateti_ficha_cruz.png">
+          </h2>
+          <form class="tateti_base" [hidden]="elegirMarca == true">
+            <tr>
+              <td (click)="Marcar(nuevoJuego.fichas[0])"><img src={{nuevoJuego.fichas[0].foto}}></td>
+              <td (click)="Marcar(nuevoJuego.fichas[1])"><img src={{nuevoJuego.fichas[1].foto}}></td>
+              <td (click)="Marcar(nuevoJuego.fichas[2])"><img src={{nuevoJuego.fichas[2].foto}}></td>
+            </tr>
+            <tr>
+              <td (click)="Marcar(nuevoJuego.fichas[3])"><img src={{nuevoJuego.fichas[3].foto}}></td>
+              <td (click)="Marcar(nuevoJuego.fichas[4])"><img src={{nuevoJuego.fichas[4].foto}}></td>
+              <td (click)="Marcar(nuevoJuego.fichas[5])"><img src={{nuevoJuego.fichas[5].foto}}></td>
+            </tr>
+            <tr>
+              <td (click)="Marcar(nuevoJuego.fichas[6])"><img src={{nuevoJuego.fichas[6].foto}}></td>
+              <td (click)="Marcar(nuevoJuego.fichas[7])"><img src={{nuevoJuego.fichas[7].foto}}></td>
+              <td (click)="Marcar(nuevoJuego.fichas[8])"><img src={{nuevoJuego.fichas[8].foto}}></td>
+            </tr>
+          </form>
+            <button (click)="Reiniciar()"  class="btn_dark">Reiniciar</button>
+        </form>
+        <div id="snackbar">{{mensajes}}</div>
+    </div>
+  </div>
